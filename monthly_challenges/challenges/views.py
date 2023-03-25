@@ -4,5 +4,8 @@ from django.http import HttpResponse
 # Create your views here.
 
 
-def index(request):
-    return HttpResponse("It's Working")
+def january(request):
+    return HttpResponse("Eat no junck food for entire month!")
+
+def february(resuest):
+    return HttpResponse("Walk for atleast 20 minutes every day!")
