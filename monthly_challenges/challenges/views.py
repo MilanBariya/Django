@@ -24,7 +24,7 @@ def monthly_challenges_by_number(result, month):
     months = list(monthly_challenges.keys())
 
     if month > len(months):
-        return HttpResponseNotFound("This month is not Valid!")
+        return HttpResponseNotFound("<h1>This month is not Valid!</h1>")
 
     redicrect_month = months[month - 1]
     redirect_path = reverse("month-challenge", args=[redicrect_month])
@@ -34,6 +34,7 @@ def monthly_challenges_by_number(result, month):
 def monthly_challenge(resuest, month):
     try:
         challenge_text = monthly_challenges[month]
-        return HttpResponse(challenge_text)
+        response_data = f"<h1>{challenge_text}</h1>"
+        return HttpResponse(response_data)
     except:
-        return HttpResponseNotFound("This month is not supported!")
+        return HttpResponseNotFound("<h1>This month is not supported!</h1>")
