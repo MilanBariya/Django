@@ -45,11 +45,8 @@ def monthly_challenges_by_number(resuest, month):
 
 
 def monthly_challenge(resuest, month):
-    # try:
+    try:
         challenge_text = monthly_challenges[month]
-        # response_data = f"<h1>{challenge_text}</h1>"
-        # response_data = render_to_string("challenges/challenge.html")
-        # return HttpResponse(response_data)
-        return render(resuest, "challenges/challenge.html")
-    # except:
-    #     return HttpResponseNotFound("<h1>This month is not supported!</h1>")
+        return render(resuest, "challenges/challenge.html", {"text":challenge_text, "month_name":month.capitalize()})
+    except:
+        return HttpResponseNotFound("<h1>This month is not supported!</h1>")
